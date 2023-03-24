@@ -55,7 +55,6 @@ const images = [
 
 const itemsContainer = document.querySelector(".slider-items");
 
-
 for (let i = 0; i < images.length; i++) {
     const currentImage = images[i];
 
@@ -105,12 +104,16 @@ const delay = 3000;
 activeDelay(delay);
 
 
-const imgContainer = document.querySelector(".img-container");
-imgContainer.addEventListener("mouseenter", function () {
-    clearInterval(autoplay);
-});
-imgContainer.addEventListener("mouseleave", function () {
-    activeDelay(delay);
+const imgContainer = document.querySelectorAll(".img-container");
+
+imgContainer.forEach((elem) => {
+    elem.addEventListener("mouseenter", function () {
+        clearInterval(autoplay);
+    });
+
+    elem.addEventListener("mouseleave", function () {
+        activeDelay(delay);
+    });
 });
 
 // Prelevo i due bottoni
